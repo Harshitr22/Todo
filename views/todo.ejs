@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+  <title>Todo App</title>
+  <link rel="stylesheet" href="/static/stylesheets/style.css" type="text/css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Candal|Chewy&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+    crossorigin="anonymous"
+  />
+</head>
+<body>
+  <nav>
+    <h1>TODOS</h1>
+  </nav>
+  <section id="hero">
+    <h1>When forget what to do.....<br />Open the TODOs</h1>
+    <img src="/static/images/hero.png" />
+    <button class="btn">Get Started</button>
+  </section>
+  <div class="todo-container">
+    <h2>To-Do List</h2>
+    <div class="todo">
+      <form action="/" method="POST" class="todo-header">
+        <input
+          type="text"
+          name="content"
+          style="border: 2px solid rgb(35, 194, 230)"
+          id="desc"
+        />
+        <button type="submit" id="btn_todo">
+          <span class="fas fa-plus"></span>
+        </button>
+      </form>
+    </div>
+  </div>
+  <section id="todos">
+    <div id="todos">
+      <% tasks.forEach(task => { %>
+        <div class="compo" id="<%= task._id %>">
+          <div class="head">
+            <h1>Task</h1>
+            <button onclick="editTask('<%= task._id %>')"><span class="fas fa-edit" id="edit"></span></button>
+          </div>
+          <hr>
+          <p><%= task.content %></p>
+          <button onclick="completeTask('<%= task._id %>')" class="comp">Completed!</button>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+  
+</body>
+
+<script>
+    function completeTask(taskId) {
+    window.location.href = `/remove/${taskId}`;
+  }
+
+  function editTask(taskId) {
+    window.location.href = `/edit/${taskId}`;
+  }
+</script>
+
+</html>
