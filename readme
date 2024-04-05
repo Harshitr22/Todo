@@ -1,3 +1,7 @@
+
+TODO
+
+
 This is a Todo App made uisng Node.js, express and MongoDB. In this todo app, you can create a todo task, edit them and delete them when completed! 
 
 There is Certain things you need to do after you clone the repository, you need to connect it with your MongoDB.
